@@ -11,9 +11,9 @@ def mask_account_card(requisites_number: str) -> str:
         if number.isdigit():
             requisites_str += number
     if len(requisites_str) == 16:
-        return masks.get_mask_card_number(requisites_str)
+        return masks.get_mask_card_number(int(requisites_str))
     elif len(requisites_str) == 20:
-        return masks.get_mask_account(requisites_str)
+        return masks.get_mask_account(int(requisites_str))
     else:
         return "Количество цифр номера карты(счёта) неверно."
 
@@ -22,7 +22,6 @@ def get_date(date: str) -> str:
     """Принимает на вход строку с датой в формате '2024-03-11T02:26:18.671407'
     и возвращает строку с датой в формате 'ДД.ММ.ГГГГ' ('11.03.2024')"""
     return f"{date[8:10]}.{date[5:7]}.{date[:4]}"
-
 
 
 if __name__ == '__main__':
