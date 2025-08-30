@@ -18,6 +18,14 @@ def mask_account_card(requisites_number: str) -> str:
         return "Количество цифр номера карты(счёта) неверно."
 
 
-#if __name__ == '__main__':
-#    print(mask_account_card("Счет 73654108430135874305"))
-#    print(mask_account_card("Visa Platinum 7000792289606361"))
+def get_date(date: str) -> str:
+    """Принимает на вход строку с датой в формате '2024-03-11T02:26:18.671407'
+    и возвращает строку с датой в формате 'ДД.ММ.ГГГГ' ('11.03.2024')"""
+    return f"{date[8:10]}.{date[5:7]}.{date[:4]}"
+
+
+
+if __name__ == '__main__':
+    print(mask_account_card("Счет 73654108430135874305"))
+    print(mask_account_card("Visa Platinum 7000792289606361"))
+    print(get_date("2024-03-11T02:26:18.671407"))
