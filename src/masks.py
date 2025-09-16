@@ -1,6 +1,10 @@
 def get_mask_card_number(card_number: int) -> str:
     """Принимает на вход номер карты в виде числа и возвращает маску номера по правилу
     XXXX XX** **** XXXX"""
+    if not isinstance(card_number, int):
+        raise TypeError("Ошибка типа данных")
+    if len(str(card_number)) > 16 or len(str(card_number)) < 16:
+        raise ValueError("Неверное количество цифр")
     card_number_str = str(card_number)
     return f"{card_number_str[0:4]} {card_number_str[4:6]}** **** {card_number_str[12:]}"
 
