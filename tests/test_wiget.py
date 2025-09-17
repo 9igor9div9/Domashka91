@@ -50,3 +50,33 @@ def test_mask_account_card_type():
         mask_account_card(3654108430135874)
 
 
+def test_get_date(date):
+    """Тестирование функции get_date при корректных данных(счёт)"""
+    assert get_date(date) == "11.03.2024"
+
+
+@pytest.mark.parametrize("date, expected", [("2024-03-11", "11.03.2024"),
+                                            ("2024-03-11T02:26:18", "11.03.2024"),
+                                            ("2024-03-11T02:26", "11.03.2024"),
+                                            ("2024-03-11T02", "11.03.2024"),
+                                            ("2024-03-11T02:26:18.6714075675648764856856757", "11.03.2024")])
+def test_get_date_multi(date, expected):
+    """Параметризованные тесты функции get_date на различных входных форматах даты."""
+    assert get_date(date) == expected
+
+
+def test_get_date_None():
+    """Тестирование функции get_date при отсутствии входящих данных"""
+    with pytest.raises(ValueError):
+        get_date(None)
+
+
+def test_get_date_type():
+    """Тестирование функции get_date при неожидаемом типе данных"""
+    with pytest.raises(TypeError):
+        get_date(202403110218671407)
+
+
+def test_get_date_not_date():
+    """Тестирование функции get_date при отсутствии даты во входящих данных"""
+    assert get_date("T02:26:18.671407") == "Некорректный формат даты"

@@ -17,3 +17,6 @@ def requisites_number_account():
 def required_number_card():
     return "Visa Platinum 7000792289606361"
 
+@pytest.fixture
+def date():
+    return "2024-03-11T02:26:18.671407"
