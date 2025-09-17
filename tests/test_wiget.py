@@ -80,3 +80,8 @@ def test_get_date_type():
 def test_get_date_not_date():
     """Тестирование функции get_date при отсутствии даты во входящих данных"""
     assert get_date("T02:26:18.671407") == "Некорректный формат даты"
+
+
+def test_get_date_not_str():
+    """Тестирование функции get_date при пустой строке во входящих данных"""
+    assert get_date("") == "Некорректный формат даты"
