@@ -8,3 +8,12 @@ def card_number():
 @pytest.fixture
 def account():
     return 73654108430135874305
+
+@pytest.fixture
+def requisites_number_account():
+    return "Счет 73654108430135874305"
+
+@pytest.fixture
+def required_number_card():
+    return "Visa Platinum 7000792289606361"
+

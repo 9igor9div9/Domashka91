@@ -4,7 +4,7 @@ def get_mask_card_number(card_number: int) -> str:
     if card_number is None:
         raise ValueError("Отсутствуют входящие данные")
     if not isinstance(card_number, int) or card_number < 0:
-        raise TypeError("Неправильный ввод")
+        raise TypeError("Неправильные вводные данные")
     if len(str(card_number)) > 16 or len(str(card_number)) < 16:
         raise ValueError("Неверное количество цифр")
     card_number_str = str(card_number)
@@ -17,7 +17,7 @@ def get_mask_account(account: int) -> str:
     if account is None:
         raise ValueError("Отсутствуют входящие данные")
     if not isinstance(account, int) or account < 0:
-        raise TypeError("Неправильный ввод")
+        raise TypeError("Неправильные вводные данные")
     if len(str(account)) > 20 or len(str(account)) < 20:
         raise ValueError("Неверное количество цифр")
     account_str = str(account)
