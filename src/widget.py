@@ -1,5 +1,6 @@
-from src import masks
 from datetime import datetime
+
+from src import masks
 
 
 def mask_account_card(requisites_number: str) -> str:
@@ -22,6 +23,7 @@ def mask_account_card(requisites_number: str) -> str:
     else:
         raise ValueError("Количество цифр номера карты(счёта) неверно.")
 
+
 def get_date(date: str) -> str:
     """Принимает на вход строку с датой в формате '2024-03-11T02:26:18.671407'
     и возвращает строку с датой в формате 'ДД.ММ.ГГГГ' ('11.03.2024')"""
@@ -37,8 +39,7 @@ def get_date(date: str) -> str:
         return "Некорректный формат даты"
 
 
-#if __name__ == "__main__":
+# if __name__ == "__main__":
 #    print(mask_account_card("Счёт 73654108430135874305"))
 #    print(mask_account_card("Visa Platinum 7000792289606361"))
-#    print(get_date("T02:26:18.671407"))
-
+#    print(get_date("2024-03-11T02:26:18.671407"))

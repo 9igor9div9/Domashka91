@@ -73,6 +73,10 @@ pip install -r requirements.txt
     return sort_list_of_events2
   ```
 
+## Проект протестирован при помощи Pytest
+[Отчёт о тестировании](htmlcov/index.html)
+
+
 ## Лицензия:
 
 Проект распространяется без лицензии.
