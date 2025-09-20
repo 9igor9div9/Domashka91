@@ -30,28 +30,28 @@ def test_mask_account_card_multi(account_card: str, expected: str) -> None:
     assert mask_account_card(account_card) == expected
 
 
-def test_mask_account_card_min() -> None:
-    """Тестирование функции mask_account_card при большем количестве цифр"""
+def test_mask_account_card_min_account() -> None:
+    """Тестирование функции mask_account_card при меньшем количестве цифр"""
     with pytest.raises(ValueError):
         mask_account_card("Счет 73654106789135805")
 
 
-def test_mask_account_card_max() -> None:
+def test_mask_account_card_min_card() -> None:
+    """Тестирование функции mask_account_card при меньшем количестве цифр"""
+    with pytest.raises(ValueError):
+        mask_account_card("Mastercard 701179228967606")
+
+
+def test_mask_account_card_max_account() -> None:
+    """Тестирование функции mask_account_card при большем количестве цифр"""
+    with pytest.raises(ValueError):
+        mask_account_card("Счёт 7365410843013587430545")
+
+
+def test_mask_account_card_max_card() -> None:
     """Тестирование функции mask_account_card при большем количестве цифр"""
     with pytest.raises(ValueError):
         mask_account_card("Mastercard 701179228967606251")
-
-
-def test_mask_account_card_None() -> None:
-    """Тестирование функции mask_account_card при отсутствии входящих данных"""
-    with pytest.raises(ValueError):
-        mask_account_card(None)
-
-
-def test_mask_account_card_type() -> None:
-    """Тестирование функции mask_account_card при неожидаемом типе данных"""
-    with pytest.raises(TypeError):
-        mask_account_card(3654108430135874)
 
 
 def test_get_date(date_test: str) -> None:
@@ -72,18 +72,6 @@ def test_get_date(date_test: str) -> None:
 def test_get_date_multi(date_test: str, expected: str) -> None:
     """Параметризованные тесты функции get_date на различных входных форматах даты."""
     assert get_date(date_test) == expected
-
-
-def test_get_date_None() -> None:
-    """Тестирование функции get_date при отсутствии входящих данных"""
-    with pytest.raises(ValueError):
-        get_date(None)
-
-
-def test_get_date_type() -> None:
-    """Тестирование функции get_date при неожидаемом типе данных"""
-    with pytest.raises(TypeError):
-        get_date(202403110218671407)
 
 
 def test_get_date_not_date() -> None:

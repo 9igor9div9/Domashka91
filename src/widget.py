@@ -7,10 +7,6 @@ def mask_account_card(requisites_number: str) -> str:
     """Принимает на вход строку формата: Visa Platinum 7000792289606361, или
     Maestro 7000792289606361, или Счет 73654108430135874305. И возвращает
     строку с замаскированным номером. Для карт и счетов используется разная маскировка"""
-    if requisites_number is None:
-        raise ValueError("Отсутствуют входящие данные")
-    if not isinstance(requisites_number, str):
-        raise TypeError("Неправильные вводные данные")
     requisites_number_list = list(requisites_number)
     requisites_str = ""
     for number in requisites_number_list:
@@ -27,10 +23,6 @@ def mask_account_card(requisites_number: str) -> str:
 def get_date(date: str) -> str:
     """Принимает на вход строку с датой в формате '2024-03-11T02:26:18.671407'
     и возвращает строку с датой в формате 'ДД.ММ.ГГГГ' ('11.03.2024')"""
-    if date is None:
-        raise ValueError("Отсутствуют входящие данные")
-    if not isinstance(date, str):
-        raise TypeError("Неправильные вводные данные")
     try:
         date_obj = datetime.fromisoformat(date)
         formatted_date = date_obj.strftime("%d.%m.%Y")
