@@ -188,3 +188,158 @@ def list_of_events_2_no_correct() -> list[dict[str, Any]]:
         {"id": 594226727, "state": "CANCELED", "date": "2018-09-12T21:27:25.241689"},
         {"id": 615064591, "state": "CANCELED", "date": "2018-10-14T08:21:33.419441"},
     ]
+
+
+# Фикстуры и переменные для generators.py
+
+@pytest.fixture
+def transactions_1():
+    """Фикстура для filter_by_currency и transaction_descriptions"""
+    return [{
+             "id": 939719570,
+             "state": "EXECUTED",
+             "date": "2018-06-30T02:08:58.425572",
+             "operationAmount": {"amount": "9824.07", "currency": {"name": "USD", "code": "USD" }},
+             "description": "Перевод организации",
+             "from": "Счет 75106830613657916952",
+             "to": "Счет 11776614605963066702"
+            },
+            {
+              "id": 142264268,
+              "state": "EXECUTED",
+              "date": "2019-04-04T23:20:05.206878",
+              "operationAmount": {"amount": "79114.93", "currency": {"name": "USD", "code": "USD"}},
+              "description": "Перевод со счета на счет",
+              "from": "Счет 19708645243227258542",
+              "to": "Счет 75651667383060284188"
+            },
+            {
+              "id": 939719570,
+              "state": "EXECUTED",
+              "date": "2020-06-30T02:08:58.425572",
+              "operationAmount": {"amount": "120000.07", "currency": {"name": "RUR", "code": "RUR"}},
+              "description": "Перевод зарплаты",
+              "from": "Счет 75106830613657916952",
+              "to": "Счет 11776614605963066702"
+            },
+            {
+              "id": 142264268,
+              "state": "EXECUTED",
+              "date": "2021-04-04T23:20:05.206878",
+              "operationAmount": {"amount": "60000.93", "currency": {"name": "RUR", "code": "RUR"}},
+              "description": "Перевод аванса",
+              "from": "Счет 19708645243227258542",
+              "to": "Счет 75651667383060284188"
+            }
+           ]
+
+
+@pytest.fixture
+def currency_usd():
+    """Фикстура для filter_by_currency"""
+    return "USD"
+
+
+@pytest.fixture
+def currency_rur():
+    """Фикстура для filter_by_currency"""
+    return "RUR"
+
+
+@pytest.fixture
+def transactions_usd1():
+    """Фикстура для filter_by_currency"""
+    return [{'id': 939719570,
+             'state': 'EXECUTED',
+             'date': '2018-06-30T02:08:58.425572',
+             'operationAmount': {'amount': '9824.07', 'currency': {'name': 'USD', 'code': 'USD'}},
+             'description': 'Перевод организации',
+             'from': 'Счет 75106830613657916952',
+             'to': 'Счет 11776614605963066702'},
+            {'id': 939719570,
+             'state': 'EXECUTED',
+             'date': '2018-06-30T02:08:58.425572',
+             'operationAmount': {'amount': '9824.07', 'currency': {'name': 'USD', 'code': 'USD'}},
+             'description': 'Перевод организации',
+             'from': 'Счет 75106830613657916952',
+             'to': 'Счет 11776614605963066702'}
+            ]
+
+
+@pytest.fixture
+def transactions_usd2():
+    """Фикстура для filter_by_currency"""
+    return {
+              "id": 142264268,
+              "state": "EXECUTED",
+              "date": "2019-04-04T23:20:05.206878",
+              "operationAmount": {"amount": "79114.93", "currency": {"name": "USD", "code": "USD"}},
+              "description": "Перевод со счета на счет",
+              "from": "Счет 19708645243227258542",
+              "to": "Счет 75651667383060284188"
+            }
+
+
+@pytest.fixture
+def transactions_rur():
+    """Фикстура для filter_by_currency"""
+    return [{
+              "id": 939719570,
+              "state": "EXECUTED",
+              "date": "2020-06-30T02:08:58.425572",
+              "operationAmount": {"amount": "120000.07", "currency": {"name": "RUR", "code": "RUR"}},
+              "description": "Перевод зарплаты",
+              "from": "Счет 75106830613657916952",
+              "to": "Счет 11776614605963066702"
+            },
+            {
+              "id": 142264268,
+              "state": "EXECUTED",
+              "date": "2021-04-04T23:20:05.206878",
+              "operationAmount": {"amount": "60000.93", "currency": {"name": "RUR", "code": "RUR"}},
+              "description": "Перевод аванса",
+              "from": "Счет 19708645243227258542",
+              "to": "Счет 75651667383060284188"
+            }
+           ]
+
+
+@pytest.fixture
+def transactions_not_operationamount():
+    """Фикстура для filter_by_currency"""
+    return [{
+             "id": 939719570,
+             "state": "EXECUTED",
+             "date": "2018-06-30T02:08:58.425572",
+             "operationAmount": {"amount": "9824.07", "currency": {"name": "USD", "code": "USD" }},
+             "description": "Перевод организации",
+             "from": "Счет 75106830613657916952",
+             "to": "Счет 11776614605963066702"
+            },
+            {
+              "id": 142264268,
+              "state": "EXECUTED",
+              "date": "2019-04-04T23:20:05.206878",
+              "description": "Перевод со счета на счет",
+              "from": "Счет 19708645243227258542",
+              "to": "Счет 75651667383060284188"
+            },
+            {
+              "id": 939719570,
+              "state": "EXECUTED",
+              "date": "2020-06-30T02:08:58.425572",
+              "operationAmount": {"amount": "120000.07", "currency": {"name": "RUR", "code": "RUR"}},
+              "description": "Перевод зарплаты",
+              "from": "Счет 75106830613657916952",
+              "to": "Счет 11776614605963066702"
+            },
+            {
+              "id": 142264268,
+              "state": "EXECUTED",
+              "date": "2021-04-04T23:20:05.206878",
+              "operationAmount": {"amount": "60000.93", "currency": {"name": "RUR", "code": "RUR"}},
+              "description": "Перевод аванса",
+              "from": "Счет 19708645243227258542",
+              "to": "Счет 75651667383060284188"
+            }
+           ]
