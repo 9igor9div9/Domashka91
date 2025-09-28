@@ -1,10 +1,16 @@
-from typing import Iterator
+from typing import Iterator, Generator
 
 
 def filter_by_currency(transactions: list[dict], currency: str) -> Iterator[dict]:
     for transaction in transactions:
         if transaction["operationAmount"]["currency"]["code"] == currency:
             yield transaction
+
+
+def transaction_descriptions(transactions: list[dict]) -> Generator[str]:
+    for transaction in transactions:
+        description = transaction["description"]
+        yield description
 
 
 
@@ -72,5 +78,10 @@ transactions_1 =  [{
 
 
 if __name__ == "__main__":
-    for _ in range(2):
-        print(next(filter_by_currency(transactions_1, "USD")))
+    #for _ in range(2):
+        #print(next(filter_by_currency(transactions_1, "USD")))
+
+    descriptions = transaction_descriptions(transactions_1)
+    for _ in range(4):
+        print(next(descriptions))
+
