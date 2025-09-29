@@ -333,3 +333,87 @@ def transactions_not_operationamount():
               "to": "Счет 75651667383060284188"
             }
            ]
+
+
+@pytest.fixture
+def transactions_not():
+    return []
+
+
+# Переменные для параметрического теста filter_by_currency
+transactions_par = [{
+             "id": 939719570,
+             "state": "EXECUTED",
+             "date": "2018-06-30T02:08:58.425572",
+             "operationAmount": {"amount": "9824.07", "currency": {"name": "USD", "code": "USD" }},
+             "description": "Перевод организации",
+             "from": "Счет 75106830613657916952",
+             "to": "Счет 11776614605963066702"
+            },
+            {
+              "id": 142264268,
+              "state": "EXECUTED",
+              "date": "2019-04-04T23:20:05.206878",
+              "operationAmount": {"amount": "79114.93", "currency": {"name": "USD", "code": "USD"}},
+              "description": "Перевод со счета на счет",
+              "from": "Счет 19708645243227258542",
+              "to": "Счет 75651667383060284188"
+            },
+            {
+              "id": 939719570,
+              "state": "EXECUTED",
+              "date": "2020-06-30T02:08:58.425572",
+              "operationAmount": {"amount": "120000.07", "currency": {"name": "RUR", "code": "RUR"}},
+              "description": "Перевод зарплаты",
+              "from": "Счет 75106830613657916952",
+              "to": "Счет 11776614605963066702"
+            },
+            {
+              "id": 142264268,
+              "state": "EXECUTED",
+              "date": "2021-04-04T23:20:05.206878",
+              "operationAmount": {"amount": "60000.93", "currency": {"name": "RUR", "code": "RUR"}},
+              "description": "Перевод аванса",
+              "from": "Счет 19708645243227258542",
+              "to": "Счет 75651667383060284188"
+            }
+           ]
+
+
+transactions_par_usd1 = {'id': 939719570, 'state': 'EXECUTED',
+            'date': '2018-06-30T02:08:58.425572',
+            'operationAmount': {'amount': '9824.07', 'currency': {'name': 'USD', 'code': 'USD'}},
+            'description': 'Перевод организации',
+            'from': 'Счет 75106830613657916952',
+            'to': 'Счет 11776614605963066702'
+            }
+
+
+transactions_par_usd2 = {'id': 142264268, 'state': 'EXECUTED',
+            'date': '2019-04-04T23:20:05.206878',
+            'operationAmount': {'amount': '79114.93', 'currency': {'name': 'USD', 'code': 'USD'}},
+            'description': 'Перевод со счета на счет',
+            'from': 'Счет 19708645243227258542',
+            'to': 'Счет 75651667383060284188'
+            }
+
+
+transactions_par_rur1 = {'id': 939719570,
+                         'state': 'EXECUTED',
+                         'date': '2020-06-30T02:08:58.425572',
+                         'operationAmount': {'amount': '120000.07', 'currency': {'name': 'RUR', 'code': 'RUR'}},
+                         'description': 'Перевод зарплаты',
+                         'from': 'Счет 75106830613657916952',
+                         'to': 'Счет 11776614605963066702'
+                         }
+
+
+transactions_par_rur2 = {'id': 142264268,
+                         'state': 'EXECUTED',
+                         'date': '2021-04-04T23:20:05.206878',
+                         'operationAmount': {'amount': '60000.93', 'currency': {'name': 'RUR', 'code': 'RUR'}},
+                         'description': 'Перевод аванса',
+                         'from': 'Счет 19708645243227258542',
+                         'to': 'Счет 75651667383060284188'
+                         }
+

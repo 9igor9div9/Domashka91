@@ -5,9 +5,6 @@ def filter_by_currency(transactions: list[dict], currency: str) -> str | Iterato
     """Принимает на вход список словарей, представляющих транзакции.
     Возвращать итератор, который поочередно выдает транзакции,
     где валюта операции соответствует заданной"""
-    # for transaction in transactions:
-    #     if transaction["operationAmount"]["currency"]["code"] == currency:
-    #         yield transaction
     transactions_iter = []
     if len(transactions) == 0:
         return "Отсутствуют входящие данные"
@@ -23,13 +20,17 @@ def filter_by_currency(transactions: list[dict], currency: str) -> str | Iterato
         return iter(transactions_iter)
 
 
-def transaction_descriptions(transactions: list[dict]) -> Generator[str]:
+def transaction_descriptions(transactions: list[dict]) -> str | Iterator[Any]:
     """Принимает список словарей с транзакциями и
     возвращает описание каждой операции по очереди."""
-    for transaction in transactions:
-        description = transaction["description"]
-        yield description
-
+    transactions_iter1 = []
+    if len(transactions) == 0:
+        return "Отсутствуют входящие данные"
+    else:
+        for transaction in transactions:
+            description = transaction["description"]
+            transactions_iter1.append(description)
+    return iter(transactions_iter1)
 
 def card_number_generator(start: int, stop: int) -> Generator[str]:
     """Принимает начальное и конечное значения для генерации диапазона
@@ -85,17 +86,18 @@ transactions_1 =  [{
 
 
 if __name__ == "__main__":
-    gen = filter_by_currency(transactions_1, "USD")
-    for _ in range(2):
-        print(next(gen))
+#     gen = filter_by_currency(transactions_1, "RUR")
+#     for _ in range(2):
+#         print(next(gen))
 #
-#     descriptions = transaction_descriptions(transactions_1)
-#     for _ in range(4):
-#         print(next(descriptions))
+    descriptions = transaction_descriptions(transactions_1)
+    for _ in range(4):
+        print(next(descriptions))
+    print(transaction_descriptions(transactions_2))
 #
 #     for card_number in card_number_generator(1, 5):
 #         print(card_number)
-    g = filter_by_currency(transactions_1, "USD")
+#     g = filter_by_currency(transactions_1, "USD")
 #    print(next(g))
 #    print(next(g))
 #    print(filter_by_currency(transactions_1, "USD"))
