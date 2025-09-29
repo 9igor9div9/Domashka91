@@ -4,13 +4,11 @@ import pytest
 
 from src.generators import filter_by_currency, transaction_descriptions, card_number_generator
 
-def test_filter_by_currency(transactions_1, currency_usd, transactions_usd1) -> None:
+def test_filter_by_currency(transactions_1, currency_usd, transactions_usd1, transactions_usd2) -> None:
     """Тестирование фильтрации транзакций по заданной валюте"""
-    transactions_usd = []
-    for _ in range(2):
-        transactions_usd.append(next(filter_by_currency(transactions_1, currency_usd)))
-    assert transactions_usd == transactions_usd1
-
+    gen = filter_by_currency(transactions_1,currency_usd)
+    assert next(gen) == transactions_usd1
+    assert next(gen) == transactions_usd2
 
 def test_filter_by_currency_not_currency(transactions_rur, currency_usd) -> None:
     """Тестирование функции, когда транзакции в заданной валюте отсутствуют."""
