@@ -28,6 +28,15 @@ pip install -r requirements.txt
    содержащий только те словари, у которых ключ соответствует указанному значению.
 6. sort_by_date: Принимает список словарей и необязательный параметр, задающий порядок сортировки.
    Возвращает новый список, отсортированный по дате.
+7. filter_by_currency: Принимает на вход список словарей, представляющих транзакции.
+    Возвращать итератор, который поочередно выдает транзакции,
+    где валюта операции соответствует заданной.
+8. transaction_descriptions: Принимает список словарей с транзакциями и
+    возвращает описание каждой операции по очереди.
+9. card_number_generator: Принимает начальное и конечное значения для генерации диапазона
+    номеров (от 0000 0000 0000 0001 до 9999 9999 9999 9999).
+    Выдает номера банковских карт в формате XXXX XXXX XXXX XXXX,
+    где X— цифра номера карты.
 
 ## Примеры работы функций:
 
@@ -71,6 +80,46 @@ pip install -r requirements.txt
   def sort_by_date(list_of_events_2, sort_order=True)
     sort_list_of_events2 = sorted(list_of_events_2, key=lambda x: x['date'], reverse=sort_order)
     return sort_list_of_events2
+  ```
+  ```
+  def filter_by_currency(transactions:, currency):
+    transactions_iter = []
+    if len(transactions) == 0:
+        return "Отсутствуют входящие данные"
+    else:
+        for transaction in transactions:
+            if "operationAmount" not in transaction:
+                return "Некорректные входящие данные"
+            elif transaction["operationAmount"]["currency"]["code"] == currency:
+                 transactions_iter.append(transaction)
+    if len(transactions_iter) == 0:
+        return "Транзакции в заданной валюте отсутствуют"
+    else:
+        return iter(transactions_iter)
+  ```
+  ```
+  def transaction_descriptions(transactions):
+    transactions_iter1 = []
+    if len(transactions) == 0:
+        return "Отсутствуют входящие данные"
+    else:
+        for transaction in transactions:
+            description = transaction["description"]
+            transactions_iter1.append(description)
+    return iter(transactions_iter1)
+  ```
+  ```
+  def card_number_generator(start: int, stop: int) -> Generator[str]:
+    if stop > 9999999999999999:
+        raise ValueError("Превышен диапазон генерации номеров карт")
+    elif start < 0 or stop < 0:
+        raise ValueError("Число не может быть отрицательным")
+    card_number_iter = []
+    for i in range(start, stop + 1):
+        number = str(i).zfill(16)
+        formatted_number = f"{number[:4]} {number[4:8]} {number[8:12]} {number[12:]}"
+        card_number_iter.append(formatted_number)
+    return iter(card_number_iter)
   ```
 
 ## Проект протестирован при помощи Pytest

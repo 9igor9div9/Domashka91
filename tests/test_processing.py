@@ -3,8 +3,12 @@ from typing import Any
 import pytest
 
 from src.processing import filter_by_state, sort_by_date
-from tests.conftest import (list_expected_parametric_1, list_expected_parametric_2, list_expected_parametric_3,
-                            list_filter)
+from tests.conftest import (
+    list_expected_parametric_1,
+    list_expected_parametric_2,
+    list_expected_parametric_3,
+    list_filter,
+)
 
 
 def test_filter_by_state_by_default(
@@ -31,8 +35,8 @@ def test_filter_by_date_not_state_in_list(list_of_event_expected: list[dict[str,
     [
         (list_filter, "EXECUTED", list_expected_parametric_1),
         (list_filter, "PENDING", list_expected_parametric_2),
-        (list_filter, "CANCELED", list_expected_parametric_3)
-    ]
+        (list_filter, "CANCELED", list_expected_parametric_3),
+    ],
 )
 def test_filter_by_state_parametrize(
     list_parametric: list[dict[str, Any]], state: str, expected: list[dict[str, Any]]
