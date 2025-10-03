@@ -1,9 +1,9 @@
 import time
 from functools import wraps
-from typing import Optional
+from typing import Optional, Any
 
 
-def log(filename: Optional[str] = None):
+def log(filename: Optional[str] = None) -> str | Any:
     def wrapper(funk):
         @wraps(funk)
         def inner(*args, **kwargs):
@@ -14,7 +14,7 @@ def log(filename: Optional[str] = None):
                 log_message = (f"Функция: {funk.__name__}\n"
                                f"Время начала выполнения функции: {start_funk}\n"
                                f"Время окончания выполнения функции: {end_funk}\n"
-                               f"Время выполнения: {end_funk - start_funk}\n"
+                               f"Время выполнения: {end_funk - start_funk:.6f} сек.\n"
                                f"Результат: {result}\n"
                                f"\n")
                 if filename:
@@ -41,10 +41,15 @@ def log(filename: Optional[str] = None):
     return wrapper
 
 
-if __name__ == "__main__":
-    @log(filename="mylog.txt")
-    def my_function(x, y):
-        return x / y
-
-
-    my_function(2, 1)
+# if __name__ == "__main__":
+#     @log("mylog.txt")
+#     def my_function(x, y):
+#         return x / y
+#
+#
+#     my_function(2, 3)
+#
+# #
+# #     # with open('mylog.txt') as f:
+# #     #     line = f.readline()
+# #     #     print(line)
