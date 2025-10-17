@@ -1,12 +1,8 @@
 import json
-import os
 
 
 def transactions_data(path_data: str) -> list[dict] | None:
     """Возвращает список словарей с данными о финансовых транзакциях из JSON-файла."""
-    if not os.path.exists(path_data):
-        print(f"Ошибка: файл '{path_data}' не найден.")
-        return []
     try:
         with open(path_data, "r", encoding="utf-8") as file:
             file1 = file.read()
@@ -19,8 +15,14 @@ def transactions_data(path_data: str) -> list[dict] | None:
                 print("Ошибка: файл не содержит список транзакций.")
                 return []
         return data
+    except FileNotFoundError:
+        print(f"Ошибка: файл '{path_data}' не найден.")
+        return []
     except json.JSONDecodeError:
         print("Ошибка декодирования файла")
+        return []
+    except Exception as e:
+        print(f"Произошла ошибка: {str(e)}")
         return []
 
 
