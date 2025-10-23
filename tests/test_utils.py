@@ -1,7 +1,7 @@
 import json
 from unittest.mock import mock_open, patch
 
-from src.utils import transactions_data  # Замените на ваш модуль
+from src.utils import transactions_data
 
 
 def test_successful_read_valid_data() -> None:

@@ -1,10 +1,13 @@
 import logging
+import os
 
 
 #Основная конфигурация logging
+
+path_log_masks = os.path.abspath(os.path.join(os.path.dirname(__file__), '..', 'logs', 'masks.log'))
 logging.basicConfig(level=logging.DEBUG,
                     format='%(asctime)s - %(filename)s - %(funcName)s - %(levelname)s - %(message)s', # Формат записи
-                    filename='../logs/masks.log',  # Запись логов в файл
+                    filename=path_log_masks,  # Запись логов в файл
                     filemode='w', # Перезапись файла при каждом запуске
                     encoding='UTF-8')  # Задаёт кодировку сообщений в файле лога(если необходимо)
 
