@@ -1,19 +1,20 @@
 import logging
 import os
 
+# Основная конфигурация logging
 
-#Основная конфигурация logging
-
-path_log_masks = os.path.abspath(os.path.join(os.path.dirname(__file__), '..', 'logs', 'masks.log'))
-logging.basicConfig(level=logging.DEBUG,
-                    format='%(asctime)s - %(filename)s - %(funcName)s - %(levelname)s - %(message)s', # Формат записи
-                    filename=path_log_masks,  # Запись логов в файл
-                    filemode='w', # Перезапись файла при каждом запуске
-                    encoding='UTF-8')  # Задаёт кодировку сообщений в файле лога(если необходимо)
+path_log_masks = os.path.abspath(os.path.join(os.path.dirname(__file__), "..", "logs", "masks.log"))
+logging.basicConfig(
+    level=logging.DEBUG,
+    format="%(asctime)s - %(filename)s - %(funcName)s - %(levelname)s - %(message)s",  # Формат записи
+    filename=path_log_masks,  # Запись логов в файл
+    filemode="w",  # Перезапись файла при каждом запуске
+    encoding="UTF-8",
+)  # Задаёт кодировку сообщений в файле лога(если необходимо)
 
 # Создаем логеры для различных компонентов программы
-card_number_logger = logging.getLogger('card_number_logger')
-account_logger = logging.getLogger('account_logger')
+card_number_logger = logging.getLogger("card_number_logger")
+account_logger = logging.getLogger("account_logger")
 
 
 def get_mask_card_number(card_number: int = 0) -> str:
@@ -48,6 +49,6 @@ def get_mask_account(account: int = 0) -> str:
 
 if __name__ == "__main__":
     print(get_mask_account(73654108430135874305))
-#    print(get_mask_account())
+    #    print(get_mask_account())
     print(get_mask_card_number(4108438735874305))
 #   print(get_mask_card_number())
