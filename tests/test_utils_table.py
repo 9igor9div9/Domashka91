@@ -1,10 +1,8 @@
-import pytest
-
-from unittest.mock import patch, mock_open
-import pandas as pd
 import logging
+from unittest.mock import patch
 
-from tests.conftest import expected_data_table_csv, expected_data_table_xlsx
+import pandas as pd
+
 from src.utils_table import transactions_data_csv, transactions_data_xlsx
 
 
@@ -28,7 +26,7 @@ def test_transactions_data_csv_file_not_found() -> None:
     """Тест обработки ошибки FileNotFoundError"""
     with patch("pandas.read_csv") as mock_read_csv:
         # Настраиваем мок для выброса FileNotFoundError
-        mock_read_csv.side_effect = FileNotFoundError(f"Ошибка: файл не найден.")
+        mock_read_csv.side_effect = FileNotFoundError("Ошибка: файл не найден.")
 
         # Вызываем тестируемую функцию
         result = transactions_data_csv("nonexistent.csv")
@@ -91,14 +89,16 @@ def test_transactions_data_csv_general_exception() -> None:
 
 def test_transactions_data_csv_logging() -> None:
     """Тест логирования при успешном выполнении"""
-    with patch("pandas.read_csv") as mock_read_csv, \
-            patch.object(logging.getLogger("utils"), "info") as mock_logger_info:
+    with (
+        patch("pandas.read_csv") as mock_read_csv,
+        patch.object(logging.getLogger("utils"), "info") as mock_logger_info,
+    ):
         # Настраиваем мок данные
         expected_data = [{"id": 1, "amount": 1000}]
         mock_read_csv.return_value = pd.DataFrame(expected_data)
 
         # Вызываем тестируемую функцию
-        result = transactions_data_csv("test.csv")
+        transactions_data_csv("test.csv")
 
         # Проверяем, что были вызваны логи
         mock_logger_info.assert_any_call("Начало работы функции")
@@ -108,13 +108,15 @@ def test_transactions_data_csv_logging() -> None:
 
 def test_transactions_data_csv_error_logging() -> None:
     """Тест логирования при ошибке"""
-    with patch("pandas.read_csv") as mock_read_csv, \
-            patch.object(logging.getLogger("utils"), "error") as mock_logger_error:
+    with (
+        patch("pandas.read_csv") as mock_read_csv,
+        patch.object(logging.getLogger("utils"), "error") as mock_logger_error,
+    ):
         # Настраиваем мок для выброса ошибки
         mock_read_csv.side_effect = FileNotFoundError("Ошибка: файл не найден")
 
         # Вызываем тестируемую функцию
-        result = transactions_data_csv("nonexistent.csv")
+        transactions_data_csv("nonexistent.csv")
 
         # Проверяем, что была записана ошибка в лог
         mock_logger_error.assert_called_once_with("Ошибка: файл 'nonexistent.csv' не найден.")
@@ -140,7 +142,7 @@ def test_transactions_data_xlsx_file_not_found() -> None:
     """Тест обработки ошибки FileNotFoundError"""
     with patch("pandas.read_excel") as mock_read_excel:
         # Настраиваем мок для выброса FileNotFoundError
-        mock_read_excel.side_effect = FileNotFoundError(f"Ошибка: файл не найден.")
+        mock_read_excel.side_effect = FileNotFoundError("Ошибка: файл не найден.")
 
         # Вызываем тестируемую функцию
         result = transactions_data_xlsx("nonexistent.xlsx")
@@ -203,14 +205,16 @@ def test_transactions_data_xlsx_general_exception() -> None:
 
 def test_transactions_data_xlsx_logging() -> None:
     """Тест логирования при успешном выполнении"""
-    with patch("pandas.read_excel") as mock_read_excel, \
-            patch.object(logging.getLogger("utils"), "info") as mock_logger_info:
+    with (
+        patch("pandas.read_excel") as mock_read_excel,
+        patch.object(logging.getLogger("utils"), "info") as mock_logger_info,
+    ):
         # Настраиваем мок данные
         expected_data = [{"id": 1, "amount": 1000}]
         mock_read_excel.return_value = pd.DataFrame(expected_data)
 
         # Вызываем тестируемую функцию
-        result = transactions_data_xlsx("test.xlsx")
+        transactions_data_xlsx("test.xlsx")
 
         # Проверяем, что были вызваны логи
         mock_logger_info.assert_any_call("Начало работы функции")
@@ -220,13 +224,15 @@ def test_transactions_data_xlsx_logging() -> None:
 
 def test_transactions_data_xlsx_error_logging() -> None:
     """Тест логирования при ошибке"""
-    with patch("pandas.read_excel") as mock_read_excel, \
-            patch.object(logging.getLogger("utils"), "error") as mock_logger_error:
+    with (
+        patch("pandas.read_excel") as mock_read_excel,
+        patch.object(logging.getLogger("utils"), "error") as mock_logger_error,
+    ):
         # Настраиваем мок для выброса ошибки
         mock_read_excel.side_effect = FileNotFoundError("Ошибка: файл не найден")
 
         # Вызываем тестируемую функцию
-        result = transactions_data_xlsx("nonexistent.xlsx")
+        transactions_data_xlsx("nonexistent.xlsx")
 
         # Проверяем, что была записана ошибка в лог
         mock_logger_error.assert_called_once_with("Ошибка: файл 'nonexistent.xlsx' не найден.")

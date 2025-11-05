@@ -3,13 +3,8 @@ from typing import Any
 import pytest
 
 from src.generators import card_number_generator, filter_by_currency, transaction_descriptions
-from tests.conftest import (
-    transactions_par,
-    transactions_par_rur1,
-    transactions_par_rur2,
-    transactions_par_usd1,
-    transactions_par_usd2,
-)
+from tests.conftest import (transactions_par, transactions_par_rur1, transactions_par_rur2, transactions_par_usd1,
+                            transactions_par_usd2)
 
 
 def test_filter_by_currency(

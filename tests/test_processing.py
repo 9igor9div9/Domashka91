@@ -3,12 +3,8 @@ from typing import Any
 import pytest
 
 from src.processing import filter_by_state, sort_by_date
-from tests.conftest import (
-    list_expected_parametric_1,
-    list_expected_parametric_2,
-    list_expected_parametric_3,
-    list_filter,
-)
+from tests.conftest import (list_expected_parametric_1, list_expected_parametric_2, list_expected_parametric_3,
+                            list_filter)
 
 
 def test_filter_by_state_by_default(
