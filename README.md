@@ -37,6 +37,9 @@ pip install -r requirements.txt
     номеров (от 0000 0000 0000 0001 до 9999 9999 9999 9999).
     Выдает номера банковских карт в формате XXXX XXXX XXXX XXXX,
     где X— цифра номера карты.
+10. transactions_data: Возвращает список словарей с данными о финансовых транзакциях из JSON-файла.
+11. transactions_data_csv: Возвращает список словарей с данными о финансовых транзакциях из CSV-файла.
+12. transactions_data_xlsx: Возвращает список словарей с данными о финансовых транзакциях из xlsx-файла.
 
 ## Примеры работы функций:
 
@@ -81,8 +84,8 @@ pip install -r requirements.txt
     sort_list_of_events2 = sorted(list_of_events_2, key=lambda x: x['date'], reverse=sort_order)
     return sort_list_of_events2
   ```
-  ```
-  def filter_by_currency(transactions:, currency):
+- ```
+  def filter_by_currency(transactions, currency):
     transactions_iter = []
     if len(transactions) == 0:
         return "Отсутствуют входящие данные"
@@ -97,7 +100,7 @@ pip install -r requirements.txt
     else:
         return iter(transactions_iter)
   ```
-  ```
+- ```
   def transaction_descriptions(transactions):
     transactions_iter1 = []
     if len(transactions) == 0:
@@ -108,8 +111,8 @@ pip install -r requirements.txt
             transactions_iter1.append(description)
     return iter(transactions_iter1)
   ```
-  ```
-  def card_number_generator(start: int, stop: int) -> Generator[str]:
+- ```
+  def card_number_generator(start, stop):
     if stop > 9999999999999999:
         raise ValueError("Превышен диапазон генерации номеров карт")
     elif start < 0 or stop < 0:
@@ -121,6 +124,82 @@ pip install -r requirements.txt
         card_number_iter.append(formatted_number)
     return iter(card_number_iter)
   ```
+- ```
+  def transactions_data(path_data):
+    try:
+        with open(path_data, "r", encoding="utf-8") as file:
+            file1 = file.read()
+        if len(file1) == 0:
+            print("Ошибка. Файл пуст")
+            return []
+        else:
+            data = json.loads(file1)
+            if not isinstance(data, list):
+                print("Ошибка: файл не содержит список транзакций.")
+                return []
+        return data
+    except FileNotFoundError:
+        print(f"Ошибка: файл '{path_data}' не найден.")
+        return []
+    except json.JSONDecodeError:
+        print("Ошибка декодирования файла")
+        return []
+    except Exception as e:
+        print(f"Произошла ошибка: {str(e)}")
+        return []
+   ```
+- ```
+  def transactions_data_csv(path_data):
+    try:
+        df_csv = pd.read_csv(path_data, sep=";")
+        data = df_csv.to_dict(orient='records')
+        result = list()
+        for item in data:
+            result.append(item)
+        return result
+    except FileNotFoundError:
+        print(f"Ошибка: файл '{path_data}' не найден.")
+        return []
+    except pd.errors.EmptyDataError:
+        print("Ошибка. Файл пуст")
+        return []
+    except pd.errors.ParserError as e:
+        print(f"Ошибка парсинга: {e}")
+        return []
+    except UnicodeDecodeError:
+        print("Неверная кодировка файла")
+        return []
+    except Exception as e:
+        print(f"Произошла ошибка: {str(e)}")
+        return []
+  ```
+- ```
+    def transactions_data_xlsx(path_data):
+        try:
+            df_xlsx = pd.read_excel(path_data)
+            data = df_xlsx.to_dict(orient='records')
+            result = list()
+            for item in data:
+                result.append(item)
+            return result
+        except FileNotFoundError:
+            print(f"Ошибка: файл '{path_data}' не найден.")
+            return []
+        except pd.errors.EmptyDataError:
+            print("Ошибка. Файл пуст")
+            return []
+        except pd.errors.ParserError as e:
+            print(f"Ошибка парсинга: {e}")
+            return []
+        except UnicodeDecodeError:
+            print("Неверная кодировка файла")
+            return []
+        except Exception as e:
+            print(f"Произошла ошибка: {str(e)}")
+            return []
+
+    ``` 
+
 
 ## Проект протестирован при помощи Pytest
 [Отчёт о тестировании](htmlcov/index.html)
