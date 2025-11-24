@@ -1,7 +1,8 @@
 import re
+from collections import Counter
 
 
-def process_bank_search(data:list[dict], search:str)->list[dict]:
+def process_bank_search(data:list[dict], search:str) -> list[dict]:
     """Принимает список словарей с данными о банковских операциях и строку поиска,
     возвращает список словарей, у которых в описании есть данная строка"""
     try:
@@ -32,6 +33,61 @@ def process_bank_search(data:list[dict], search:str)->list[dict]:
     except Exception as e:
         print(f"Ошибка: {e}")
         return []
+
+
+def process_bank_operations(data: list[dict], categories: list) -> dict:
+    """Принимает список словарей с данными о банковских операциях и список категорий операций,
+    возвращает словарь, в котором ключи — это названия категорий,
+    а значения — это количество операций в каждой категории."""
+    try:
+        # Проверка типа входных данных
+        if not isinstance(data, list):
+            raise TypeError("data должен быть списком")
+        if not isinstance(categories, list):
+            raise TypeError("categories должен быть списком")
+
+        # Проверка на пустые данные
+        if not data:
+            return {}
+        if not categories:
+            return {}
+
+        categories_counter = Counter()
+        for operation in data:
+            # Проверка, что operation является словарем
+            if not isinstance(operation, dict):
+                continue
+
+            description = operation.get("description", "")
+
+            # Проверка, что description является строкой
+            if not isinstance(description, str):
+                continue
+
+            for cat in categories:
+                # Проверка, что cat является строкой
+                if not isinstance(cat, str):
+                    continue
+                if cat.lower() in description.lower():
+                    categories_counter[cat] += 1
+
+        return dict(categories_counter)
+    except KeyError as e:
+        print(f"Отсутствует ключ в словаре: {e}")
+        return {}
+    except AttributeError as e:
+        print(f"Ошибка атрибута (возможно, вызов метода .lower не у того типа объекта): {e}")
+        return {}
+    except TypeError as e:
+        print(f"Ошибка типа данных: {e}")
+        return {}
+    except ValueError as e:
+        print(f"Ошибка значения: {e}")
+        return {}
+    except Exception as e:
+        print(f"Ошибка: {e}")
+        return {}
+
 
 
 if __name__ == "__main__":
@@ -73,13 +129,16 @@ if __name__ == "__main__":
         "to": "Счет 38976430693692818358"
         },
         {
-            "id": 863064926,
-            "state": "EXECUTED",
-            "date": "2019-12-08T22:46:21.935582",
-            "operationAmount": {"amount": "41096.24", "currency": {"name": "USD", "code": "USD"}},
-            "description": "Открытие вклада",
-            "to": "Счет 90424923579946435907"
+        "id": 863064926,
+        "state": "EXECUTED",
+        "date": "2019-12-08T22:46:21.935582",
+        "operationAmount": {"amount": "41096.24", "currency": {"name": "USD", "code": "USD"}},
+        "description": "Открытие вклада",
+        "to": "Счет 90424923579946435907"
         }
     ]
 
+    categoryes1 = ["Открытие вклада", "Перевод организации", "Перевод со счета на счет"]
+
     print(process_bank_search(test_list, "Открытие"))
+    print(process_bank_operations(test_list, categoryes1))
