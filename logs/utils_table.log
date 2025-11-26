@@ -1,79 +1,79 @@
-2025-11-05 18:47:09,897 - utils.py - transactions_data - INFO - Начало работы функции
-2025-11-05 18:47:09,898 - utils.py - transactions_data - INFO - Открываем json файл
-2025-11-05 18:47:09,898 - utils.py - transactions_data - INFO - Работа функции завершилась успешно
-2025-11-05 18:47:09,899 - utils.py - transactions_data - INFO - Начало работы функции
-2025-11-05 18:47:09,900 - utils.py - transactions_data - INFO - Открываем json файл
-2025-11-05 18:47:09,900 - utils.py - transactions_data - ERROR - Ошибка: файл 'nonexistent_file.json' не найден.
-2025-11-05 18:47:09,902 - utils.py - transactions_data - INFO - Начало работы функции
-2025-11-05 18:47:09,902 - utils.py - transactions_data - INFO - Открываем json файл
-2025-11-05 18:47:09,903 - utils.py - transactions_data - ERROR - Ошибка. Файл пуст
-2025-11-05 18:47:09,906 - utils.py - transactions_data - INFO - Начало работы функции
-2025-11-05 18:47:09,906 - utils.py - transactions_data - INFO - Открываем json файл
-2025-11-05 18:47:09,906 - utils.py - transactions_data - ERROR - Ошибка декодирования файла
-2025-11-05 18:47:09,909 - utils.py - transactions_data - INFO - Начало работы функции
-2025-11-05 18:47:09,909 - utils.py - transactions_data - INFO - Открываем json файл
-2025-11-05 18:47:09,909 - utils.py - transactions_data - ERROR - Ошибка: файл не содержит список транзакций.
-2025-11-05 18:47:09,912 - utils.py - transactions_data - INFO - Начало работы функции
-2025-11-05 18:47:09,912 - utils.py - transactions_data - INFO - Открываем json файл
-2025-11-05 18:47:09,913 - utils.py - transactions_data - ERROR - Ошибка декодирования файла
-2025-11-05 18:47:09,917 - utils.py - transactions_data - INFO - Начало работы функции
-2025-11-05 18:47:09,917 - utils.py - transactions_data - INFO - Открываем json файл
-2025-11-05 18:47:09,917 - utils.py - transactions_data - INFO - Работа функции завершилась успешно
-2025-11-05 18:47:09,920 - utils.py - transactions_data - INFO - Начало работы функции
-2025-11-05 18:47:09,920 - utils.py - transactions_data - INFO - Открываем json файл
-2025-11-05 18:47:09,920 - utils.py - transactions_data - INFO - Работа функции завершилась успешно
-2025-11-05 18:47:09,923 - utils.py - transactions_data - INFO - Начало работы функции
-2025-11-05 18:47:09,923 - utils.py - transactions_data - INFO - Открываем json файл
-2025-11-05 18:47:09,923 - utils.py - transactions_data - ERROR - Ошибка декодирования файла
-2025-11-05 18:47:09,926 - utils.py - transactions_data - INFO - Начало работы функции
-2025-11-05 18:47:09,926 - utils.py - transactions_data - INFO - Открываем json файл
-2025-11-05 18:47:09,927 - utils.py - transactions_data - INFO - Работа функции завершилась успешно
-2025-11-05 18:47:09,929 - utils.py - transactions_data - INFO - Начало работы функции
-2025-11-05 18:47:09,929 - utils.py - transactions_data - INFO - Открываем json файл
-2025-11-05 18:47:09,930 - utils.py - transactions_data - INFO - Работа функции завершилась успешно
-2025-11-05 18:47:09,931 - utils.py - transactions_data - INFO - Начало работы функции
-2025-11-05 18:47:09,931 - utils.py - transactions_data - INFO - Открываем json файл
-2025-11-05 18:47:09,931 - utils.py - transactions_data - ERROR - Произошла ошибка: Some unexpected error
-2025-11-05 18:47:09,933 - utils.py - transactions_data - INFO - Начало работы функции
-2025-11-05 18:47:09,933 - utils.py - transactions_data - INFO - Открываем json файл
-2025-11-05 18:47:09,933 - utils.py - transactions_data - ERROR - Произошла ошибка: Permission denied
-2025-11-05 18:47:09,936 - utils_table.py - transactions_data_csv - INFO - Начало работы функции
-2025-11-05 18:47:09,936 - utils_table.py - transactions_data_csv - INFO - Читаем CSV файл
-2025-11-05 18:47:09,939 - utils_table.py - transactions_data_csv - INFO - Работа функции завершилась успешно
-2025-11-05 18:47:09,940 - utils_table.py - transactions_data_csv - INFO - Начало работы функции
-2025-11-05 18:47:09,941 - utils_table.py - transactions_data_csv - INFO - Читаем CSV файл
-2025-11-05 18:47:09,941 - utils_table.py - transactions_data_csv - ERROR - Ошибка: файл 'nonexistent.csv' не найден.
-2025-11-05 18:47:09,942 - utils_table.py - transactions_data_csv - INFO - Начало работы функции
-2025-11-05 18:47:09,942 - utils_table.py - transactions_data_csv - INFO - Читаем CSV файл
-2025-11-05 18:47:09,942 - utils_table.py - transactions_data_csv - ERROR - Ошибка. Файл пуст
-2025-11-05 18:47:09,944 - utils_table.py - transactions_data_csv - INFO - Начало работы функции
-2025-11-05 18:47:09,944 - utils_table.py - transactions_data_csv - INFO - Читаем CSV файл
-2025-11-05 18:47:09,944 - utils_table.py - transactions_data_csv - ERROR - Ошибка парсинга: Ошибка парсинга
-2025-11-05 18:47:09,946 - utils_table.py - transactions_data_csv - INFO - Начало работы функции
-2025-11-05 18:47:09,946 - utils_table.py - transactions_data_csv - INFO - Читаем CSV файл
-2025-11-05 18:47:09,946 - utils_table.py - transactions_data_csv - ERROR - Неверная кодировка файла
-2025-11-05 18:47:09,947 - utils_table.py - transactions_data_csv - INFO - Начало работы функции
-2025-11-05 18:47:09,947 - utils_table.py - transactions_data_csv - INFO - Читаем CSV файл
-2025-11-05 18:47:09,947 - utils_table.py - transactions_data_csv - ERROR - Произошла ошибка: Произошла ошибка
-2025-11-05 18:47:09,951 - utils_table.py - transactions_data_csv - INFO - Начало работы функции
-2025-11-05 18:47:09,952 - utils_table.py - transactions_data_csv - INFO - Читаем CSV файл
-2025-11-05 18:47:09,954 - utils_table.py - transactions_data_xlsx - INFO - Начало работы функции
-2025-11-05 18:47:09,954 - utils_table.py - transactions_data_xlsx - INFO - Читаем xlsx файл
-2025-11-05 18:47:09,955 - utils_table.py - transactions_data_xlsx - INFO - Работа функции завершилась успешно
-2025-11-05 18:47:09,956 - utils_table.py - transactions_data_xlsx - INFO - Начало работы функции
-2025-11-05 18:47:09,956 - utils_table.py - transactions_data_xlsx - INFO - Читаем xlsx файл
-2025-11-05 18:47:09,957 - utils_table.py - transactions_data_xlsx - ERROR - Ошибка: файл 'nonexistent.xlsx' не найден.
-2025-11-05 18:47:09,958 - utils_table.py - transactions_data_xlsx - INFO - Начало работы функции
-2025-11-05 18:47:09,958 - utils_table.py - transactions_data_xlsx - INFO - Читаем xlsx файл
-2025-11-05 18:47:09,958 - utils_table.py - transactions_data_xlsx - ERROR - Ошибка. Файл пуст
-2025-11-05 18:47:09,960 - utils_table.py - transactions_data_xlsx - INFO - Начало работы функции
-2025-11-05 18:47:09,960 - utils_table.py - transactions_data_xlsx - INFO - Читаем xlsx файл
-2025-11-05 18:47:09,960 - utils_table.py - transactions_data_xlsx - ERROR - Ошибка парсинга: Ошибка парсинга
-2025-11-05 18:47:09,961 - utils_table.py - transactions_data_xlsx - INFO - Начало работы функции
-2025-11-05 18:47:09,961 - utils_table.py - transactions_data_xlsx - INFO - Читаем xlsx файл
-2025-11-05 18:47:09,962 - utils_table.py - transactions_data_xlsx - ERROR - Неверная кодировка файла
-2025-11-05 18:47:09,963 - utils_table.py - transactions_data_xlsx - INFO - Начало работы функции
-2025-11-05 18:47:09,963 - utils_table.py - transactions_data_xlsx - INFO - Читаем xlsx файл
-2025-11-05 18:47:09,963 - utils_table.py - transactions_data_xlsx - ERROR - Произошла ошибка: Произошла ошибка
-2025-11-05 18:47:09,967 - utils_table.py - transactions_data_xlsx - INFO - Начало работы функции
-2025-11-05 18:47:09,967 - utils_table.py - transactions_data_xlsx - INFO - Читаем xlsx файл
+2025-11-26 23:07:43,144 - utils.py - transactions_data - INFO - Начало работы функции
+2025-11-26 23:07:43,144 - utils.py - transactions_data - INFO - Открываем json файл
+2025-11-26 23:07:43,145 - utils.py - transactions_data - INFO - Работа функции завершилась успешно
+2025-11-26 23:07:43,146 - utils.py - transactions_data - INFO - Начало работы функции
+2025-11-26 23:07:43,147 - utils.py - transactions_data - INFO - Открываем json файл
+2025-11-26 23:07:43,147 - utils.py - transactions_data - ERROR - Ошибка: файл 'nonexistent_file.json' не найден.
+2025-11-26 23:07:43,149 - utils.py - transactions_data - INFO - Начало работы функции
+2025-11-26 23:07:43,150 - utils.py - transactions_data - INFO - Открываем json файл
+2025-11-26 23:07:43,150 - utils.py - transactions_data - ERROR - Ошибка. Файл пуст
+2025-11-26 23:07:43,153 - utils.py - transactions_data - INFO - Начало работы функции
+2025-11-26 23:07:43,153 - utils.py - transactions_data - INFO - Открываем json файл
+2025-11-26 23:07:43,153 - utils.py - transactions_data - ERROR - Ошибка декодирования файла
+2025-11-26 23:07:43,156 - utils.py - transactions_data - INFO - Начало работы функции
+2025-11-26 23:07:43,156 - utils.py - transactions_data - INFO - Открываем json файл
+2025-11-26 23:07:43,156 - utils.py - transactions_data - ERROR - Ошибка: файл не содержит список транзакций.
+2025-11-26 23:07:43,159 - utils.py - transactions_data - INFO - Начало работы функции
+2025-11-26 23:07:43,159 - utils.py - transactions_data - INFO - Открываем json файл
+2025-11-26 23:07:43,159 - utils.py - transactions_data - ERROR - Ошибка декодирования файла
+2025-11-26 23:07:43,162 - utils.py - transactions_data - INFO - Начало работы функции
+2025-11-26 23:07:43,162 - utils.py - transactions_data - INFO - Открываем json файл
+2025-11-26 23:07:43,163 - utils.py - transactions_data - INFO - Работа функции завершилась успешно
+2025-11-26 23:07:43,165 - utils.py - transactions_data - INFO - Начало работы функции
+2025-11-26 23:07:43,165 - utils.py - transactions_data - INFO - Открываем json файл
+2025-11-26 23:07:43,166 - utils.py - transactions_data - INFO - Работа функции завершилась успешно
+2025-11-26 23:07:43,168 - utils.py - transactions_data - INFO - Начало работы функции
+2025-11-26 23:07:43,168 - utils.py - transactions_data - INFO - Открываем json файл
+2025-11-26 23:07:43,169 - utils.py - transactions_data - ERROR - Ошибка декодирования файла
+2025-11-26 23:07:43,171 - utils.py - transactions_data - INFO - Начало работы функции
+2025-11-26 23:07:43,172 - utils.py - transactions_data - INFO - Открываем json файл
+2025-11-26 23:07:43,172 - utils.py - transactions_data - INFO - Работа функции завершилась успешно
+2025-11-26 23:07:43,175 - utils.py - transactions_data - INFO - Начало работы функции
+2025-11-26 23:07:43,175 - utils.py - transactions_data - INFO - Открываем json файл
+2025-11-26 23:07:43,175 - utils.py - transactions_data - INFO - Работа функции завершилась успешно
+2025-11-26 23:07:43,177 - utils.py - transactions_data - INFO - Начало работы функции
+2025-11-26 23:07:43,177 - utils.py - transactions_data - INFO - Открываем json файл
+2025-11-26 23:07:43,177 - utils.py - transactions_data - ERROR - Произошла ошибка: Some unexpected error
+2025-11-26 23:07:43,178 - utils.py - transactions_data - INFO - Начало работы функции
+2025-11-26 23:07:43,178 - utils.py - transactions_data - INFO - Открываем json файл
+2025-11-26 23:07:43,179 - utils.py - transactions_data - ERROR - Произошла ошибка: Permission denied
+2025-11-26 23:07:43,195 - utils_table.py - transactions_data_csv - INFO - Начало работы функции
+2025-11-26 23:07:43,195 - utils_table.py - transactions_data_csv - INFO - Читаем CSV файл
+2025-11-26 23:07:43,198 - utils_table.py - transactions_data_csv - INFO - Работа функции завершилась успешно
+2025-11-26 23:07:43,199 - utils_table.py - transactions_data_csv - INFO - Начало работы функции
+2025-11-26 23:07:43,199 - utils_table.py - transactions_data_csv - INFO - Читаем CSV файл
+2025-11-26 23:07:43,200 - utils_table.py - transactions_data_csv - ERROR - Ошибка: файл 'nonexistent.csv' не найден.
+2025-11-26 23:07:43,201 - utils_table.py - transactions_data_csv - INFO - Начало работы функции
+2025-11-26 23:07:43,201 - utils_table.py - transactions_data_csv - INFO - Читаем CSV файл
+2025-11-26 23:07:43,201 - utils_table.py - transactions_data_csv - ERROR - Ошибка. Файл пуст
+2025-11-26 23:07:43,203 - utils_table.py - transactions_data_csv - INFO - Начало работы функции
+2025-11-26 23:07:43,203 - utils_table.py - transactions_data_csv - INFO - Читаем CSV файл
+2025-11-26 23:07:43,203 - utils_table.py - transactions_data_csv - ERROR - Ошибка парсинга: Ошибка парсинга
+2025-11-26 23:07:43,204 - utils_table.py - transactions_data_csv - INFO - Начало работы функции
+2025-11-26 23:07:43,205 - utils_table.py - transactions_data_csv - INFO - Читаем CSV файл
+2025-11-26 23:07:43,205 - utils_table.py - transactions_data_csv - ERROR - Неверная кодировка файла
+2025-11-26 23:07:43,206 - utils_table.py - transactions_data_csv - INFO - Начало работы функции
+2025-11-26 23:07:43,206 - utils_table.py - transactions_data_csv - INFO - Читаем CSV файл
+2025-11-26 23:07:43,206 - utils_table.py - transactions_data_csv - ERROR - Произошла ошибка: Произошла ошибка
+2025-11-26 23:07:43,210 - utils_table.py - transactions_data_csv - INFO - Начало работы функции
+2025-11-26 23:07:43,210 - utils_table.py - transactions_data_csv - INFO - Читаем CSV файл
+2025-11-26 23:07:43,213 - utils_table.py - transactions_data_xlsx - INFO - Начало работы функции
+2025-11-26 23:07:43,213 - utils_table.py - transactions_data_xlsx - INFO - Читаем xlsx файл
+2025-11-26 23:07:43,214 - utils_table.py - transactions_data_xlsx - INFO - Работа функции завершилась успешно
+2025-11-26 23:07:43,215 - utils_table.py - transactions_data_xlsx - INFO - Начало работы функции
+2025-11-26 23:07:43,215 - utils_table.py - transactions_data_xlsx - INFO - Читаем xlsx файл
+2025-11-26 23:07:43,216 - utils_table.py - transactions_data_xlsx - ERROR - Ошибка: файл 'nonexistent.xlsx' не найден.
+2025-11-26 23:07:43,217 - utils_table.py - transactions_data_xlsx - INFO - Начало работы функции
+2025-11-26 23:07:43,217 - utils_table.py - transactions_data_xlsx - INFO - Читаем xlsx файл
+2025-11-26 23:07:43,217 - utils_table.py - transactions_data_xlsx - ERROR - Ошибка. Файл пуст
+2025-11-26 23:07:43,219 - utils_table.py - transactions_data_xlsx - INFO - Начало работы функции
+2025-11-26 23:07:43,219 - utils_table.py - transactions_data_xlsx - INFO - Читаем xlsx файл
+2025-11-26 23:07:43,219 - utils_table.py - transactions_data_xlsx - ERROR - Ошибка парсинга: Ошибка парсинга
+2025-11-26 23:07:43,220 - utils_table.py - transactions_data_xlsx - INFO - Начало работы функции
+2025-11-26 23:07:43,221 - utils_table.py - transactions_data_xlsx - INFO - Читаем xlsx файл
+2025-11-26 23:07:43,221 - utils_table.py - transactions_data_xlsx - ERROR - Неверная кодировка файла
+2025-11-26 23:07:43,222 - utils_table.py - transactions_data_xlsx - INFO - Начало работы функции
+2025-11-26 23:07:43,222 - utils_table.py - transactions_data_xlsx - INFO - Читаем xlsx файл
+2025-11-26 23:07:43,222 - utils_table.py - transactions_data_xlsx - ERROR - Произошла ошибка: Произошла ошибка
+2025-11-26 23:07:43,226 - utils_table.py - transactions_data_xlsx - INFO - Начало работы функции
+2025-11-26 23:07:43,226 - utils_table.py - transactions_data_xlsx - INFO - Читаем xlsx файл

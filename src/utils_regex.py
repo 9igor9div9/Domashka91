@@ -64,12 +64,12 @@ def process_bank_operations(data: list[dict], categories: list) -> dict:
             if not isinstance(description, str):
                 continue
 
-            for cat in categories:
+            for cat in sorted(set(categories)):
                 # Проверка, что cat является строкой
                 if not isinstance(cat, str):
                     continue
                 if cat.lower() in description.lower():
-                    categories_counter[cat] += 1
+                    categories_counter[cat.capitalize()] += 1
 
         return dict(categories_counter)
     except KeyError as e:
@@ -90,55 +90,59 @@ def process_bank_operations(data: list[dict], categories: list) -> dict:
 
 
 
-if __name__ == "__main__":
-    test_list = [
-        {
-        "id": 142264268,
-        "state": "EXECUTED",
-        "date": "2019-04-04T23:20:05.206878",
-        "operationAmount": {"amount": "79114.93", "currency": {"name": "USD","code": "USD"}},
-        "description": "Перевод со счета на счет",
-        "from": "Счет 19708645243227258542",
-        "to": "Счет 75651667383060284188"
-        },
-        {
-        "id": 873106923,
-        "state": "EXECUTED",
-        "date": "2019-03-23T01:09:46.296404",
-        "operationAmount": {"amount": "43318.34", "currency": {"name": "руб.", "code": "RUB"}},
-        "description": "Перевод со счета на счет",
-        "from": "Счет 44812258784861134719",
-        "to": "Счет 74489636417521191160"
-        },
-        {
-        "id": 214024827,
-        "state": "EXECUTED",
-        "date": "2018-12-20T16:43:26.929246",
-        "operationAmount": {"amount": "70946.18", "currency": {"name": "USD", "code": "USD"}},
-        "description": "Перевод организации",
-        "from": "Счет 10848359769870775355",
-        "to": "Счет 21969751544412966366"
-        },
-        {
-        "id": 522357576,
-        "state": "EXECUTED",
-        "date": "2019-07-12T20:41:47.882230",
-        "operationAmount": {"amount": "51463.70", "currency": {"name": "USD", "code": "USD"}},
-        "description": "Перевод организации",
-        "from": "Счет 48894435694657014368",
-        "to": "Счет 38976430693692818358"
-        },
-        {
-        "id": 863064926,
-        "state": "EXECUTED",
-        "date": "2019-12-08T22:46:21.935582",
-        "operationAmount": {"amount": "41096.24", "currency": {"name": "USD", "code": "USD"}},
-        "description": "Открытие вклада",
-        "to": "Счет 90424923579946435907"
-        }
-    ]
-
-    categoryes1 = ["Открытие вклада", "Перевод организации", "Перевод со счета на счет"]
-
-    print(process_bank_search(test_list, "Открытие"))
-    print(process_bank_operations(test_list, categoryes1))
+# if __name__ == "__main__":
+#     test_list = [
+#         {
+#         "id": 142264268,
+#         "state": "EXECUTED",
+#         "date": "2019-04-04T23:20:05.206878",
+#         "operationAmount": {"amount": "79114.93", "currency": {"name": "USD","code": "USD"}},
+#         "description": "Перевод со счета на счет",
+#         "from": "Счет 19708645243227258542",
+#         "to": "Счет 75651667383060284188"
+#         },
+#         {
+#         "id": 873106923,
+#         "state": "EXECUTED",
+#         "date": "2019-03-23T01:09:46.296404",
+#         "operationAmount": {"amount": "43318.34", "currency": {"name": "руб.", "code": "RUB"}},
+#         "description": "Перевод со счета на счет",
+#         "from": "Счет 44812258784861134719",
+#         "to": "Счет 74489636417521191160"
+#         },
+#         {
+#         "id": 214024827,
+#         "state": "EXECUTED",
+#         "date": "2018-12-20T16:43:26.929246",
+#         "operationAmount": {"amount": "70946.18", "currency": {"name": "USD", "code": "USD"}},
+#         "description": "Перевод организации",
+#         "from": "Счет 10848359769870775355",
+#         "to": "Счет 21969751544412966366"
+#         },
+#         {
+#         "id": 522357576,
+#         "state": "EXECUTED",
+#         "date": "2019-07-12T20:41:47.882230",
+#         "operationAmount": {"amount": "51463.70", "currency": {"name": "USD", "code": "USD"}},
+#         "description": "Перевод организации",
+#         "from": "Счет 48894435694657014368",
+#         "to": "Счет 38976430693692818358"
+#         },
+#         {
+#         "id": 863064926,
+#         "state": "EXECUTED",
+#         "date": "2019-12-08T22:46:21.935582",
+#         "operationAmount": {"amount": "41096.24", "currency": {"name": "USD", "code": "USD"}},
+#         "description": "Открытие вклада",
+#         "to": "Счет 90424923579946435907"
+#         }
+#     ]
+#
+#     categories1 = ["Открытие вклада", "Перевод организации", "Перевод со счета на счет"]
+#     categories2 = ["Открытие вклада", "Открытие вклада", "Перевод со счета на счет"]
+#
+# #    print(process_bank_search(test_list, "Открытие"))
+#     print(process_bank_operations(test_list, categories1))
+#     print(process_bank_operations(test_list, categories2))
+#     print(process_bank_operations(test_list, ["Перевод", 123, {"key": "value"}]))
+#     print(process_bank_operations(test_list, ["Перевод", "Перевод организации"]))
