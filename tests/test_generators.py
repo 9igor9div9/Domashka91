@@ -34,12 +34,12 @@ def test_filter_by_currency_parametric(
 
 def test_filter_by_currency_not_currency(transactions_rur: list[Any], currency_usd: str) -> None:
     """Тестирование функции filter_by_currency, когда транзакции в заданной валюте отсутствуют."""
-    assert filter_by_currency(transactions_rur, currency_usd) == "Транзакции в заданной валюте отсутствуют"
+    assert filter_by_currency(transactions_rur, currency_usd) == []
 
 
 def test_filter_by_currency_not(currency_usd: str) -> None:
     """Тестирование функции filter_by_currency, при пустом списке"""
-    assert filter_by_currency([], currency_usd) == "Отсутствуют входящие данные"
+    assert filter_by_currency([], currency_usd) == []
 
 
 def test_filter_by_currency_not_operationamount(

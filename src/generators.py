@@ -1,13 +1,14 @@
 from typing import Any, Generator, Iterator
 
 
-def filter_by_currency(transactions: list[dict], currency: str) -> str | Iterator[Any]:
+def filter_by_currency(transactions: list[dict], currency: str) -> str | list[Any] | Iterator[Any]:
     """Принимает на вход список словарей, представляющих транзакции.
     Возвращать итератор, который поочередно выдает транзакции,
     где валюта операции соответствует заданной."""
     transactions_iter = []
     if len(transactions) == 0:
-        return "Отсутствуют входящие данные"
+        print("Отсутствуют входящие данные")
+        return transactions_iter
     else:
         for transaction in transactions:
             if "operationAmount" not in transaction:
@@ -15,7 +16,8 @@ def filter_by_currency(transactions: list[dict], currency: str) -> str | Iterato
             elif transaction["operationAmount"]["currency"]["code"] == currency:
                 transactions_iter.append(transaction)
     if len(transactions_iter) == 0:
-        return "Транзакции в заданной валюте отсутствуют"
+        print("Транзакции в заданной валюте отсутствуют")
+        return transactions_iter
     else:
         return iter(transactions_iter)
 

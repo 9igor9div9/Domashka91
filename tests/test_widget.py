@@ -5,23 +5,23 @@ from src.widget import get_date, mask_account_card
 
 def test_mask_account(requisites_number_account: str) -> None:
     """Тестирование функции mask_account_card при корректных данных(счёт)"""
-    assert mask_account_card(requisites_number_account) == "**4305"
+    assert mask_account_card(requisites_number_account) == "Счет **4305"
 
 
 def test_mask_account_card(required_number_card: str) -> None:
     """Тестирование функции mask_account_card при корректных данных(карта)"""
-    assert mask_account_card(required_number_card) == "7000 79** **** 6361"
+    assert mask_account_card(required_number_card) == "Visa Platinum 7000 79** **** 6361"
 
 
 @pytest.mark.parametrize(
     "account_card, expected",
     [
-        ("Счет 73654106789135874405", "**4405"),
-        ("Mastercard 7011792289606251", "7011 79** **** 6251"),
-        ("Счет 73654106789135874445", "**4445"),
-        ("МИР 7011792289606276", "7011 79** **** 6276"),
-        ("Account 73654106789135874488", "**4488"),
-        ("UnionPay 7011792289606245", "7011 79** **** 6245"),
+        ("Счет 73654106789135874405", "Счет **4405"),
+        ("Mastercard 7011792289606251", "Mastercard 7011 79** **** 6251"),
+        ("Счет 73654106789135874445", "Счет **4445"),
+        ("МИР 7011792289606276", "МИР 7011 79** **** 6276"),
+        ("Account 73654106789135874488", "Account **4488"),
+        ("UnionPay 7011792289606245", "UnionPay 7011 79** **** 6245"),
     ],
 )
 def test_mask_account_card_multi(account_card: str, expected: str) -> None:
