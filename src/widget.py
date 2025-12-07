@@ -16,9 +16,9 @@ def mask_account_card(requisites_number: str) -> str:
         else:
             requisites_type += number
     if len(requisites_str) == 16:
-        return f"{requisites_type}{masks.get_mask_card_number(int(requisites_str))}"
+        return f"{requisites_type}{masks.get_mask_card_number(requisites_str)}"
     elif len(requisites_str) == 20:
-        return f"{requisites_type}{masks.get_mask_account(int(requisites_str))}"
+        return f"{requisites_type}{masks.get_mask_account(requisites_str)}"
     else:
         raise ValueError("Количество цифр номера карты(счёта) неверно.")
 

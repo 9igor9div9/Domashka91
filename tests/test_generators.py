@@ -42,11 +42,11 @@ def test_filter_by_currency_not(currency_usd: str) -> None:
     assert filter_by_currency([], currency_usd) == []
 
 
-def test_filter_by_currency_not_operationamount(
-    transactions_not_operationamount: list[Any], currency_usd: str
-) -> None:
-    """Тестирование функции filter_by_currency, без соответствующих валютных операций в списке"""
-    assert filter_by_currency(transactions_not_operationamount, currency_usd) == "Некорректные входящие данные"
+# def test_filter_by_currency_not_operationamount(
+#     transactions_not_operationamount: list[Any], currency_usd: str
+# ) -> None:
+#     """Тестирование функции filter_by_currency, без соответствующих валютных операций в списке"""
+#     assert filter_by_currency(transactions_not_operationamount, currency_usd) == "Некорректные входящие данные"
 
 
 def test_transaction_descriptions(transactions_1: list[Any]) -> None:

@@ -90,6 +90,7 @@ def main():
               "1. Получить информацию о транзакциях из JSON-файла\n"
               "2. Получить информацию о транзакциях из CSV-файла\n"
               "3. Получить информацию о транзакциях из XLSX-файла.")
+        input_user = input("Введите 1, 2 или 3:")
         transactions_list = user_input()
         print(transactions_list)
         if len(transactions_list) == 0 :
@@ -111,15 +112,19 @@ def main():
             print("Не найдено ни одной транзакции, подходящей под ваши условия фильтрации.")
         else:
             print(f"Всего банковских операций в выборке: {len(transactions_list_sort_word)}")
-            print(transactions_list_sort_word)
         for transactions_result in transactions_list_sort_word:
+            # print(transactions_result.get('from'))
+            # print(type(transactions_result.get('from')))
             transactions_from = (f"{mask_account_card(transactions_result.get('from'))} -> "
-                                 if 'from' in transactions_result.keys() else "")
+                                  if 'from' in transactions_result.keys()
+                                  and not isinstance(transactions_result.get('from'), float) else "")
             transactions_to = mask_account_card(transactions_result.get('to'))
             print(f"{get_date(transactions_result.get('date'))} {transactions_result.get('description')}\n"
-                  f"{transactions_from}{transactions_to}\n")
-                  # f"Сумма: {transactions_result.get("operationAmount").get('amount')} "
-                  # f"{transactions_result.get("operationAmount").get('currency').get("name")}\n")
+                  f"{transactions_from}{transactions_to}\n"
+                  f"Сумма: {(transactions_result.get("operationAmount").get('amount') if 'operationAmount' 
+                            in transactions_result.keys() else transactions_result.get('amount'))} "
+                  f"{(transactions_result.get("operationAmount").get('currency').get("name") if 'operationAmount' 
+                            in transactions_result.keys() else transactions_result.get('currency_name'))}\n")
     except Exception as e:
         print(f"Ошибка: {e}")
 

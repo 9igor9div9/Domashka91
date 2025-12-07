@@ -12,7 +12,8 @@ def filter_by_currency(transactions: list[dict], currency: str) -> str | list[An
     else:
         for transaction in transactions:
             if "operationAmount" not in transaction:
-                return "Некорректные входящие данные"
+                if transaction["currency_code"] == currency:
+                    transactions_iter.append(transaction)
             elif transaction["operationAmount"]["currency"]["code"] == currency:
                 transactions_iter.append(transaction)
     if len(transactions_iter) == 0:

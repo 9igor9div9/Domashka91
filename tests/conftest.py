@@ -5,15 +5,15 @@ import pytest
 
 # Фикстуры для test_masks.py
 @pytest.fixture
-def card_number_test() -> int:
+def card_number_test() -> str:
     """Фикстура для get_mask_card_number"""
-    return 7000792289606361
+    return "7000792289606361"
 
 
 @pytest.fixture
-def account_test() -> int:
+def account_test() -> str:
     """Фикстура для get_mask_account"""
-    return 73654108430135874305
+    return "73654108430135874305"
 
 
 # Фикстуры для test_widget.py
