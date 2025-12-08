@@ -40,6 +40,12 @@ pip install -r requirements.txt
 10. transactions_data: Возвращает список словарей с данными о финансовых транзакциях из JSON-файла.
 11. transactions_data_csv: Возвращает список словарей с данными о финансовых транзакциях из CSV-файла.
 12. transactions_data_xlsx: Возвращает список словарей с данными о финансовых транзакциях из xlsx-файла.
+13. def process_bank_search: Принимает список словарей с данными о банковских операциях и строку поиска,
+    возвращает список словарей, у которых в описании есть данная строка.
+14. def process_bank_operations: Принимает список словарей с данными о банковских операциях и список категорий операций,
+    возвращает словарь, в котором ключи — это названия категорий,
+    а значения — это количество операций в каждой категории.
+15. def main: Выполняет основную логику программы виджета банковских операций
 
 ## Примеры работы функций:
 
@@ -199,6 +205,73 @@ pip install -r requirements.txt
             return []
 
     ``` 
+    ```
+    def process_bank_search(data, search):
+        try:
+            if not isinstance(data, list):
+                raise TypeError("data должен быть списком")
+            if not isinstance(search, str):
+                raise TypeError("search должен быть строкой")
+            if not data:
+                return []
+            if not search:
+                return data
+            pattern = re.compile(search.lower())
+            list_search = [item for item in data if re.search(pattern, item["description"].lower())]
+            return list_search
+        except re.error as e:
+            print(f"Ошибка в регулярном выражении: {e}")
+            return []
+        except KeyError as e:
+            print(f"Отсутствует ключ в словаре: {e}")
+            return []
+        except AttributeError as e:
+            print(f"Ошибка атрибута: {e}")
+            return []
+        except Exception as e:
+            print(f"Ошибка: {e}")
+            return []
+    ```
+    ```
+    def process_bank_operations(data, categories)
+        try:
+            if not isinstance(data, list):
+                raise TypeError("data должен быть списком")
+            if not isinstance(categories, list):
+                raise TypeError("categories должен быть списком")
+            if not data:
+                return {}
+            if not categories:
+                return {}
+            categories_counter = Counter()
+            for operation in data:
+                if not isinstance(operation, dict):
+                    continue
+                description = operation.get("description", "")
+                if not isinstance(description, str):
+                    continue
+                for cat in sorted(set(categories)):
+                    if not isinstance(cat, str):
+                        continue
+                    if cat.lower() in description.lower():
+                        categories_counter[cat.capitalize()] += 1
+            return dict(categories_counter)
+        except KeyError as e:
+            print(f"Отсутствует ключ в словаре: {e}")
+            return {}
+        except AttributeError as e:
+            print(f"Ошибка атрибута (возможно, вызов метода .lower не у того типа объекта): {e}")
+            return {}
+        except TypeError as e:
+            print(f"Ошибка типа данных: {e}")
+            return {}
+        except ValueError as e:
+            print(f"Ошибка значения: {e}")
+            return {}
+        except Exception as e:
+            print(f"Ошибка: {e}")
+            return {}
+    ```
 
 
 ## Проект протестирован при помощи Pytest
@@ -209,4 +282,4 @@ pip install -r requirements.txt
 
 Проект распространяется без лицензии.
 
-### Проект на доработке.
+### Проект разработан, как учебный.
