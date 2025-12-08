@@ -2,7 +2,7 @@ import re
 from collections import Counter
 
 
-def process_bank_search(data:list[dict], search:str) -> list[dict]:
+def process_bank_search(data: list[dict], search: str) -> list[dict]:
     """Принимает список словарей с данными о банковских операциях и строку поиска,
     возвращает список словарей, у которых в описании есть данная строка"""
     try:
@@ -87,7 +87,6 @@ def process_bank_operations(data: list[dict], categories: list) -> dict:
     except Exception as e:
         print(f"Ошибка: {e}")
         return {}
-
 
 
 # if __name__ == "__main__":

@@ -5,6 +5,7 @@ from typing import Any, Callable, Optional
 
 def log(filename: Optional[str] = None) -> Callable[..., Any]:
     """Автоматически логирует начало и конец выполнения функции, а также ее результаты или возникшие ошибки."""
+
     def wrapper(funk: Callable) -> Callable:
         @wraps(funk)
         def inner(*args: Any, **kwargs: Any) -> Any:

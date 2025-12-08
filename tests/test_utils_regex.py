@@ -1,4 +1,4 @@
-from src.utils_regex import process_bank_search, process_bank_operations
+from src.utils_regex import process_bank_operations, process_bank_search
 
 
 def test_basic_functionality_process_bank_search(test_list_regex):
@@ -81,32 +81,18 @@ def test_result_structure_process_bank_search(test_list_regex):
         assert "operationAmount" in item
 
 
-
-
-
-
-
-
-
-def test_basic_functionality_process_bank_operations(test_list_regex, categories_regex1, categories_regex2,
-                                                     categories_regex3):
+def test_basic_functionality_process_bank_operations(
+    test_list_regex, categories_regex1, categories_regex2, categories_regex3
+):
     """Тесты базовой функциональности"""
     # Тест 1: Основной тест с categories1
     result = process_bank_operations(test_list_regex, categories_regex1)
-    expected = {
-        "Открытие вклада": 1,
-        "Перевод организации": 2,
-        "Перевод со счета на счет": 2
-    }
+    expected = {"Открытие вклада": 1, "Перевод организации": 2, "Перевод со счета на счет": 2}
     assert result == expected
 
     # Тест 2: Тест с categories2 (частичные совпадения)
     result = process_bank_operations(test_list_regex, categories_regex2)
-    expected = {
-        "Перевод": 4,  # Все 4 перевода
-        "Вклад": 1,  # 1 вклад
-        "Организации": 2  # 2 перевода организации
-    }
+    expected = {"Перевод": 4, "Вклад": 1, "Организации": 2}  # Все 4 перевода  # 1 вклад  # 2 перевода организации
     assert result == expected
 
     # Тест 3: Тест с categories3 (нет совпадений)
@@ -138,7 +124,7 @@ def test_edge_cases_process_bank_operations(test_list_regex, categories_regex1):
 
     # Тест 8: Категория - подстрока
     result = process_bank_operations(test_list_regex, ["счет"])
-    expected = {"Счет": 2}
+    assert result == {"Счет": 2}
 
 
 def test_error_handling_process_bank_operations(test_list_regex, categories_regex1):

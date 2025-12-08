@@ -44,7 +44,7 @@ def transactions_data(path_data: str) -> list[dict] | None:
         return []
 
 
-#if __name__ == "__main__":
+# if __name__ == "__main__":
 #    print(transactions_data("C:/Users/wapwi/PycharmProjects/Domashka91/data/operations.json"))
 #     print(transactions_data("../data/operations.json"))
 #     print(transactions_data("../data/operations1.json"))
